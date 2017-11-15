@@ -1,0 +1,17 @@
+{
+  "name": "map-plotter",
+  "version": "0.0.1",
+  "description": "Map the users position in a shared view so that they can see each other (using Google Maps).",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "position",
+    "share",
+    "google",
+    "maps"
+  ],
+  "author": "Anton Hedström",
+  "license": "MIT"
+}
