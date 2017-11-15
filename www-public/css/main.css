@@ -2,3 +2,10 @@ body {
   background-color: #EEE;
   color: #444;
 }
+
+.client-location,
+.gmaps-data {
+  border: 1px dashed #999;
+  margin: 1em;
+  padding: 1em;
+}
