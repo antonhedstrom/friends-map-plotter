@@ -1,8 +1,9 @@
-<h1>Your position</h1>
+<div id="root"></div>
 
-<div class="client-location">
-  <div id="geo">Loading...</div>
+<div class="control-center">
+  Hola {{user.username}}! (<i>{{user.id}}</i>)
 </div>
-<div class="gmaps-data">
-  Looking for 'Linköping': {{spotAddress}}
-</div>
+
+<script type="text/javascript">
+  window.myToken = '{{token}}';
+</script>

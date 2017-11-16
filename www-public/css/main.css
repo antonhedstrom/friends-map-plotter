@@ -1,11 +1,33 @@
 body {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
   background-color: #EEE;
   color: #444;
+  margin: 0;
 }
 
-.client-location,
-.gmaps-data {
-  border: 1px dashed #999;
-  margin: 1em;
+#root {
+  flex: 1;
+}
+
+.control-center {
   padding: 1em;
+}
+
+.register input {
+  padding: 0.6em;
+  font-size: 1.2em;
+  float: left;
+  border: 0;
+  display: block;
+  margin: 0;
+}
+
+.error {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 1em 2em;
+  background-color: rgb(126, 45, 45);
+  color: white;
 }
