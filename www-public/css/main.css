@@ -15,13 +15,33 @@ body {
   padding: 1em;
 }
 
-.register input {
+.register-container {
+  width: 400px;
+  margin: 0 auto;
+}
+
+.register-container input {
   padding: 0.6em;
   font-size: 1.2em;
   float: left;
   border: 0;
   display: block;
   margin: 0;
+}
+
+.register-container h1 {
+  text-align: center;
+}
+.register-container form {
+  display: flex;
+}
+
+.register-container form .name {
+  flex-grow: 1;
+}
+
+.start-button {
+  min-width: 4em;
 }
 
 .error {
