@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import MapView from './map-view';
+import MapView from './components/map-view';
 
 // if ( window.myToken) {
 //   sessionStorage.setItem('token', window.myToken);
