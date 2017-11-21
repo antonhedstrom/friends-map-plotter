@@ -1,19 +1,17 @@
 // Read environment variables from .env if available
 require('dotenv').config();
 
+const path = require('path');
+const http = require('http');
 const express = require('express');
 const exphbs = require('express-handlebars');
-const websocket = require('websocket');
 const morgan = require('morgan');
-const path = require('path');
 
 const routes = require('./lib/routes');
+const websocketServer = require('./websocket-server');
 
 const app = express();
-const WebSocketServer = websocket.server;
-const wsServer = new WebSocketServer({
-  httpServer: app
-});
+const server = http.createServer(app);
 
 // set the view engine to ejs
 app.engine('.hbs', exphbs({
@@ -30,24 +28,11 @@ app.use(morgan('dev'));
 
 app.use(routes);
 
-app.set('port', process.env.PORT ||  3003);
+app.set('port', process.env.PORT || 3003);
 
-app.listen(app.get('port'), () => {
+server.listen(app.get('port'), () => {
   console.log('Listening at ' + app.get('port'));
 
-  wsServer.on('request', function(request) {
-    var connection = request.accept(null, request.origin);
-
-    // This is the most important callback for us, we'll handle
-    // all messages from users here.
-    connection.on('message', function(message) {
-      if (message.type === 'utf8') {
-        // process WebSocket message
-      }
-    });
-
-    connection.on('close', function(connection) {
-      // close user connection
-    });
-  });
+  websocketServer(server);
 });
+

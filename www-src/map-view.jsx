@@ -9,6 +9,7 @@ import {
 } from 'react-google-maps';
 
 import geo from './geolocation';
+import WebsocketClient from './websocket-client';
 
 class MapView extends Component {
   constructor(props) {
@@ -37,6 +38,8 @@ class MapView extends Component {
         });
       }, 1000);
     });
+
+    const communicator = new WebsocketClient();
   }
   render() {
     return (<div className="google-maps-view">
