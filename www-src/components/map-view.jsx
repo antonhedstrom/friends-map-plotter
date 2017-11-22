@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { compose, withProps } from 'recompose';
 import {
@@ -8,9 +9,11 @@ import {
   Marker
 } from 'react-google-maps';
 
-import geo from './geolocation';
-import WebsocketClient from './websocket-client';
-
+@connect((store) => {
+  return {
+    myPos: store.user.pos
+  }
+})
 class MapView extends Component {
   constructor(props) {
     super(props);
@@ -24,22 +27,6 @@ class MapView extends Component {
     };
   }
   componentWillMount() {
-    geo().then(pos => {
-      this.setState({
-        devicePos: pos,
-        devicePosLoaded: true
-      });
-      setInterval(() => {
-        const pos = this.state.devicePos;
-        pos.lng += Math.random() - 0.5;
-        pos.lat += Math.random() - 0.5;
-        this.setState({
-          devicePos: pos
-        });
-      }, 1000);
-    });
-
-    const communicator = new WebsocketClient();
   }
   render() {
     return (<div className="google-maps-view">
@@ -48,12 +35,19 @@ class MapView extends Component {
         defaultZoom={8}
         center={this.state.center}
       >
-        {this.state.devicePosLoaded &&
+        {/* {this.state.devicePosLoaded &&
           <Marker position={{
             lat: this.state.devicePos.lat,
             lng: this.state.devicePos.lng
           }} />
+        } */}
+        {this.props.myPos &&
+          <Marker position={{
+            lat: this.props.myPos.lat,
+            lng: this.props.myPos.lng
+          }} />
         }
+
       </GoogleMap>
     </div>);
   }

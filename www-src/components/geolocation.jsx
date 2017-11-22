@@ -1,5 +1,5 @@
 
-function getLocation() {
+export default function getPos() {
   return new Promise((resolve, reject) => {
     if (!navigator.geolocation) {
       return reject('Geolocation is not supported by this browser.');
@@ -13,5 +13,3 @@ function getLocation() {
     });
   });
 }
-
-module.exports = getLocation;

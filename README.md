@@ -13,6 +13,7 @@ Service to plot all your friends visiting the same URL.
 
 ## Client
 
-*
 * Each user reports its position using navigator.geolocation every 5 second.
-This is being done using something like: POST /position {long: X, lat: y}
+This is being done using something like: POST /position {lng: X, lat: y}
+* On incoming Websocket: Update store. The incoming will message will have a guid
+  that will identify the user. This is the key in store.users object.

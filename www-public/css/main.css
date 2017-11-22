@@ -2,8 +2,8 @@ body {
   display: flex;
   flex-direction: column;
   height: 100vh;
-  background-color: #EEE;
-  color: #444;
+  background-color: #2F4F4F;
+  color: white;
   margin: 0;
 }
 
@@ -13,6 +13,7 @@ body {
 
 .control-center {
   padding: 1em;
+  color: white;
 }
 
 .register-container {
@@ -48,6 +49,6 @@ body {
   max-width: 600px;
   margin: 0 auto;
   padding: 1em 2em;
-  background-color: rgb(126, 45, 45);
+  background-color: #2F4F4F;
   color: white;
 }
